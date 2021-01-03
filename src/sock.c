@@ -48,6 +48,32 @@ static inline int open_raw_sock(const char *name)
     return sock;
 }
 
+int insert_trie_map(struct sock_bpf *skel)
+{
+    int err;
+
+    union
+    {
+        uint32_t b32[2];
+        uint8_t b8[8];
+    } key;
+    key.b32[0] = 24;
+    key.b8[4] = 192;
+    key.b8[5] = 168;
+    key.b8[6] = 0;
+    key.b8[7] = 0;
+    uint64_t value = 11111;
+
+    err = bpf_map_update_elem(bpf_map__fd(skel->maps.trie_map), &key, &value, 0);
+    if (err)
+    {
+        fprintf(stderr, "Failed to update map trie_map!\n");
+        return err;
+    }
+
+    return 0;
+}
+
 int main(int argc, char const *argv[])
 {
     struct sock_bpf *skel;
@@ -92,6 +118,9 @@ int main(int argc, char const *argv[])
         fprintf(stderr, "Failed to setsockopt (%d, %s)\n", errno, strerror(errno));
         goto cleanup;
     }
+
+    if (insert_trie_map(skel))
+        goto cleanup;
 
     printf("hello, world.\n");
 
