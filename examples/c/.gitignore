@@ -10,3 +10,4 @@
 /sockfilter
 /tc
 /opensnoop
+/prog_socket_filter
