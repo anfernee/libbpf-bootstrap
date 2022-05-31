@@ -5,3 +5,4 @@
 /kprobe
 /fentry
 /opensnoop
+/prog_socket_filter
