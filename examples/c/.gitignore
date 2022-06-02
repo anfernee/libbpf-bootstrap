@@ -6,3 +6,4 @@
 /fentry
 /opensnoop
 /prog_socket_filter
+/prog_sockops_tcp_bufs

@@ -20,10 +20,6 @@ int main(int argc, char const *argv[])
   int sock;
   int err;
 
-	libbpf_set_strict_mode(LIBBPF_STRICT_ALL);
-	/* Set up libbpf errors and debug info callback */
-	libbpf_set_print(libbpf_print_fn);
-
   skel = prog_socket_filter_bpf__open();
   if (!skel) {
 		fprintf(stderr, "Failed to open BPF skeleton\n");
