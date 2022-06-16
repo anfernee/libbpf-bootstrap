@@ -31,7 +31,7 @@ APPS += $(BZS_APPS)
 ALL_LDFLAGS += -lrt -ldl -lpthread -lm
 endif
 
-APPS += opensnoop prog_socket_filter prog_sockops_tcp_bufs
+APPS += opensnoop prog_socket_filter prog_sockops_tcp_bufs test_xdp
 
 # Get Clang's default includes on this system. We'll explicitly add these dirs
 # to the includes list when compiling with `-target bpf` because otherwise some
