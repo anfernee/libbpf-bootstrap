@@ -8,3 +8,4 @@
 /prog_socket_filter
 /prog_sockops_tcp_bufs
 /test_xdp
+/test_sockmap_listen
