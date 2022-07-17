@@ -1,9 +1,11 @@
+#include <assert.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/types.h>
 #include <sys/resource.h>
-#include <bpf/libbpf.h>
+#include <sys/socket.h>
 #include <linux/filter.h>
-#include <assert.h>
+#include <bpf/libbpf.h>
 #include "prog_socket_filter.skel.h"
 #include "socket.h"
 
