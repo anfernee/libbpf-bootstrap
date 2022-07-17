@@ -11,6 +11,6 @@
 /tc
 /opensnoop
 /prog_socket_filter
-/prog_sockops_tcp_bufs
+/prog_sock_bind
 /test_xdp
 /test_sockmap_listen
